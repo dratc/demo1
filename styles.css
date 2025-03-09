@@ -1,0 +1,328 @@
+html {
+    scroll-behavior: smooth;
+  }
+.video-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px; /* Adjust height as needed */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-wrapper {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .video-container {
+        width: 40%; /* Video takes 50% width on PC */
+        height: 50%;
+    }
+
+    .content-wrapper {
+        width: 60%; /* Text takes 50% width on PC */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .video-container {
+        width: 100%; /* Full width on mobile */
+        height: 700px; /* Fixed height for mobile */
+    }
+}
+.nav_color
+{
+  backdrop-filter: blur(4px);
+}
+
+/* Apply Poppins Font */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+h3, h5 {
+    font-weight: 600;
+}
+
+.product-card {
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    background-color: #f1f1f1;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.btn-outline-secondary input {
+    display: none;
+}
+
+.btn-outline-secondary:has(input:checked) {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Cash on Delivery Section */
+.payment-method {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.payment-method .form-check-input {
+    margin-top: 6px;
+}
+
+.payment-method .form-check-label {
+    font-size: 16px;
+}
+
+.payment-method p {
+    font-size: 14px;
+    margin: 0;
+    color: #6c757d;
+}
+/* Regular price with discount styling */
+.text-decoration-line-through {
+    font-size: 14px;
+    color: #999;
+}
+
+.text-danger {
+    font-size: 16px;
+}
+
+.text-success {
+    font-size: 18px;
+}
+/* Discount Pricing Styling */
+.text-decoration-line-through {
+    font-size: 14px;
+    color: #999;
+}
+
+.text-danger {
+    font-size: 16px;
+}
+
+.text-success {
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Regular price with discount styling */
+.text-decoration-line-through {
+    font-size: 14px;
+    color: #999;
+}
+
+.text-danger {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.text-success {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Badge styling for 25% OFF */
+.badge.bg-success {
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.product-card {
+    cursor: pointer;
+}
+.product-card input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: red;
+}
+
+
+
+.section {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Styling for the price container */
+.price-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the regular price */
+.regular-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Styling for the offer price */
+.offer-price {
+    color: #28a745;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.offer-price span {
+    color: #dc3545;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Hover effect for the offer price */
+.offer-price:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    section {
+        padding: 10px;
+    }
+    .price-container {
+        padding: 15px;
+    }
+    .regular-price {
+        font-size: 1em;
+    }
+    .offer-price {
+        font-size: 1.2em;
+    }
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the content */
+.product-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.product-heading {
+    font-size: 2em;
+    font-weight: bold;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Description styling */
+.product-description {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.product-description p {
+    margin-bottom: 15px;
+}
+
+.product-description strong {
+    color: #dc3545;
+}
+
+/* Highlighted features */
+.highlight {
+    background-color: #fff3cd;
+    padding: 10px;
+    border-left: 5px solid #ffc107;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .product-heading {
+        font-size: 1.5em;
+    }
+    .product-description {
+        font-size: 1em;
+    }
+}

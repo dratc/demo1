@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card p-4 shadow">
+            <h3 class="text-center text-success fw-bold">Order Confirmation</h3>
+            <div id="orderDetails"></div>
+            <button id="confirmOrder" class="btn btn-success w-100 mt-3">Confirm Order</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            const orderDetailsElement = document.getElementById('orderDetails');
+            const confirmOrderButton = document.getElementById('confirmOrder');
+
+            // Display order details
+            if (orderDetails) {
+                orderDetailsElement.innerHTML = `
+                    <p><strong>Order Number:</strong> ${orderDetails.orderNumber}</p>
+                    <p><strong>Customer Name:</strong> ${orderDetails.customerName}</p>
+                    <p><strong>Phone Number:</strong> ${orderDetails.phoneNumber}</p>
+                    <p><strong>Address:</strong> ${orderDetails.address}</p>
+                    <h5 class="mt-3">Order Summary</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th class="text-end">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${orderDetails.products.map(product => `
+                                <tr>
+                                    <td>${product.name} (${product.size}, ${product.quantity}x)</td>
+                                    <td class="text-end">৳ ${(product.price * product.quantity).toFixed(2)}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td class="text-end fw-bold">৳ ${orderDetails.subtotal.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td>Shipping</td>
+                                <td class="text-end fw-bold">৳ ${orderDetails.shippingCost.toFixed(2)}</td>
+                            </tr>
+                            <tr class="table-light">
+                                <td><strong>Total</strong></td>
+                                <td class="text-end text-success fw-bold">৳ ${orderDetails.totalPrice.toFixed(2)}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                `;
+            } else {
+                orderDetailsElement.innerHTML = '<p class="text-danger">No order details found. Please try again.</p>';
+            }
+
+            // Handle order confirmation
+            confirmOrderButton.addEventListener('click', () => {
+    const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+
+    if (orderDetails) {
+        // Prepare the data to be sent to the server
+        const formData = new FormData();
+        formData.append('entry.1707821422', orderDetails.customerName); // Name field (replace with actual entry ID)
+        formData.append('entry.352591236', orderDetails.phoneNumber); // Phone Number field (replace with actual entry ID)
+        formData.append('entry.1869469430', orderDetails.address); // Address field (replace with actual entry ID)
+        formData.append('entry.374191235', JSON.stringify(orderDetails.products)); // Order Details field (replace with actual entry ID)
+
+        // Google Form action link
+        fetch('https://docs.google.com/forms/d/1dhkjvLLP3LIkXIhEtC3ezayNYrMw5CNZ3uiseNF-1nc/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Required for Google Forms
+        })
+        .then(() => {
+            // Google Forms does not return a valid response, so we assume success
+            alert('Order confirmed! Data sent to server.');
+            localStorage.removeItem('orderDetails');
+            window.location.href = 'index.html'; // Redirect to home page
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error confirming your order. Please try again.');
+        });
+    } else {
+        alert('No order details found. Please try again.');
+    }
+});
+            });
+        
+    </script>
+</body>
+</html>
+
+https://docs.google.com/forms/d/e/1FAIpQLSevX-eQzesnWzYTVzAQ612MNyuCVqOWsBP-EIlSoP5hoRu7bg/viewform?usp=pp_url&=1
