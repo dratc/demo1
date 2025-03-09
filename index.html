@@ -90,42 +90,9 @@
             </div>
             <!-- Project Two Row-->
             <div class="row gx-0 justify-content-center">
+                <div class="col-lg-6 "><img class="img-fluid" src="size.jpg" alt="..." /></div>
                 <div class="col-lg-6"><img class="img-fluid" src="product1.jpg" alt="..." /></div>
-                <div class="col-lg-6 order-lg-first">
-                    <div class="bg-black text-center h-100 project">
-                        <div class="d-flex h-100">
-                            <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <h4 class="text-white">Mountains</h4>
-                                <table class="text-white tg mb-2 text-white-50 centr">
-                                    <thead>
-                                        <tr>
-                                            <th class="tg-za14">Size</th>
-                                            <th class="tg-za14">Measurements</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="tg-za14">M</td>
-                                            <td class="tg-za14">Chest 40", Length 40"</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tg-za14">L</td>
-                                            <td class="tg-za14">Chest 42", Length 42"</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tg-za14">XL</td>
-                                            <td class="tg-za14">Chest 44", Length 44"</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tg-za14">XXL</td>
-                                            <td class="tg-za14">Chest 46", Length 46"</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -134,12 +101,6 @@
 <section>
     <div class="product-container">
         <h1 class="product-heading">আমাদের এক্সক্লুসিভ পাঞ্জাবী</h1>
-        <div class="product-description">
-            <p><strong>সহজে খোলা ও বন্ধ করা যায় এমন দীর্ঘস্থায়ী ও টেকসই উচ্চমানের মেটাল স্ন্যাপ বোতাম।</strong></p>
-            <p>পোশাকের সৌন্দর্য বৃদ্ধিতে সহায়ক নিখুঁত কারুকাজ ও অত্যাধুনিক মেশিন এমব্রয়ডারি।</p>
-            <p>গরমের দিনে আরামদায়ক এবং দীর্ঘ সময় পরার উপযোগী উন্নতমানের টুইল কটন কাপড়।</p>
-            <p>গরমে পরার জন্য উপযুক্ত, ঘাম শোষণকারী এবং আরামদায়ক হালকা ফেব্রিক যা দীর্ঘ সময় আরামদায়ক অনুভূতি দেয়।</p>
-            <p>আপনাকে স্টাইলিশ ও অভিজাত লুক দিতে সক্ষম ট্রেন্ডি ও ইউনিক ডিজাইন।</p>
             <div class="highlight">
                 <p>ঈদ স্পেশাল কালেকশনে পছন্দ অনুযায়ী নির্বাচনের জন্য ২ টি আকর্ষণীয় রঙ এর সমাহার।</p>
                 <p>বিভিন্ন বডি টাইপের কথা মাথায় রেখে S, M, L, XL, XXL সাইজের বিকল্প।</p>
@@ -151,8 +112,7 @@
 
 <section class="section">
     <div class="price-container">
-        <div >রেগুলার প্রাইস <span class="regular-price">২৪৯০</span> টাকা</div>
-        <br>
+        <h4 >রেগুলার প্রাইস <span class="regular-price">২৪৯০</span> টাকা</h4>
         <div class="offer-price">অফার প্রাইস মাত্র <span>১৯৯০</span> টাকা</div>
     </div>
 
@@ -175,18 +135,19 @@
                     <div class="row d-flex justify-content-center bd-highlight mb-3">
                         
                         <div class="col-md-3">
-                            <label class="card p-3 product-card" checked>
-                                <input type="checkbox" checked value="1990" data-name="Premium Embroidery Panjabi - 1997SP">
-                                <img src="product1.jpg" class="img-thumbnail rounded" alt="Product 1">
+                            <label class="card p-3 product-card" >
+                                <input type="checkbox"  value="1950" data-name="Premium Embroidery Panjabi - 1997SP">
+                                <img src="product3.jpg" class="img-thumbnail rounded" alt="Product 1">
                                 <p>Premium Embroidery Panjabi - 1997SP</p>
-                                <span class="fw-bold text-primary">৳ 1990.00</span>
+                                <span class="fw-bold text-primary">৳ 1950.00</span>
                                 
                                 <!-- Quantity Input -->
                                 <div class="input-group mt-2">
                                     <button id="decrementButton" class="btn btn-outline-secondary" type="button" onclick="decrementQuantity(this)">-</button>
-                                    <input type="number" class="form-control text-center" name="quantity" value="1" min="1">
-                                    <button id="incrementButton" class="btn btn-outline-secondary" type="button" onclick="incrementQuantity(this)">+</button>
-                                </div>  
+                                    <input type="number"  class="form-control text-center" name="quantity" value="1" min="1">
+                                    <button id="incrementButton" class="btn btn-outline-secondary" type="button" onclick="decrementQuantity(this)">+</button>
+                                </div>
+                                
                                 <!-- Size Selection -->
                                 <div class="mt-2">
                                     <label class="fw-bold">Size:</label>
@@ -199,15 +160,16 @@
                                         <option value="XL">XL</option>
                                         <option value="XXL">XXL</option>
                                     </select>
+                                   
                                 </div>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="card p-3 product-card" >
-                                <input type="checkbox"  value="2050" data-name="Premium Embroidery Panjabi - 1997SP">
+                                <input type="checkbox"  value="1950" data-name="Premium Embroidery Panjabi - 1997SP">
                                 <img src="product4.jpg" class="img-thumbnail rounded" alt="Product 1">
                                 <p>Premium Embroidery Panjabi - 1997SP</p>
-                                <span class="fw-bold text-primary">৳ 2050.00</span>
+                                <span class="fw-bold text-primary">৳ 1950.00</span>
                                 
                                 <!-- Quantity Input -->
                                 <div class="input-group mt-2">
@@ -418,6 +380,15 @@
     </div>
     <!-- Copyright -->
   </footer>
+
+
+ 
+
+
+
+
+
+
 <script src="1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
