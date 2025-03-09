@@ -7,6 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <nav style="background-color: bisque;" class=" navbar navbar-expand-lg navbar-dark fixed-top ">
+        <div class="container ">
+            <a class="navbar-brand fw-bold"  style="color:#880808	;" href="#section2"><img src="logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">  Latest Panjabi</a>
+            
+           
+            
+        </div>
+    </nav>
+    <br>
+
     <div class="container mt-4">
         <div class="card p-4 shadow">
             <h3 class="text-center text-success fw-bold">Order Confirmation</h3>
@@ -85,7 +95,7 @@
         })
         .then(() => {
             // Google Forms does not return a valid response, so we assume success
-            alert('Order confirmed! Data sent to server.');
+            alert("ধন্যবাদ! আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে");
             localStorage.removeItem('orderDetails');
             window.location.href = 'index.html'; // Redirect to home page
         })
