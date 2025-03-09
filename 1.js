@@ -14,23 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let totalPrice = 0;
 
     // Popup functionality
-    const popup = document.getElementById('popup');
-    const popupButton = document.getElementById('popupButton');
-    const closePopup = document.querySelector('.close');
+ 
 
-    popupButton.addEventListener('click', () => {
-        popup.style.display = 'block';
-    });
+    // Auto-check the first product by default
+    const firstProductCheckbox = document.querySelector('.product-card input[type="checkbox"]');
+    if (firstProductCheckbox) {
+        firstProductCheckbox.checked = true;
+    }
 
-    closePopup.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
+    // Initialize the order summary calculation
+    updateOrderSummary();
 
     // Product selection and calculation
     productCards.forEach(card => {
@@ -88,13 +81,53 @@ document.addEventListener('DOMContentLoaded', function () {
         finalPriceElement.textContent = totalPrice.toFixed(2);
     }
 
+    // Function to show error messages
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorModal.show();
+    }
+
     // Place order button functionality
     placeOrderButton.addEventListener('click', () => {
-        const customerName = document.getElementById('customerName').value;
-        const phoneNumber = document.getElementById('phoneNumber').value;
-        const address = document.getElementById('address').value;
+        const customerName = document.getElementById('customerName').value.trim();
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        const address = document.getElementById('address').value.trim();
         const selectedProducts = [];
+        let sizeSelected = false;
 
+        // Check if at least one product is selected and a size is chosen
+        productCards.forEach(card => {
+            const checkbox = card.querySelector('input[type="checkbox"]');
+            const sizeSelect = card.querySelector('.product-size');
+            if (checkbox.checked && sizeSelect.value) {
+                sizeSelected = true;
+            }
+        });
+
+        // Validate inputs
+        if (!customerName) {
+            showError("❌ Please enter your name!");
+            return;
+        }
+        if (!phoneNumber) {
+            showError("❌ Please enter your phone number!");
+            return;
+        }
+        if (!address) {
+            showError("❌ Please enter your address!");
+            return;
+        }
+        if (!sizeSelected) {
+            showError("❌ Please select a size for the selected product(s)!");
+            return;
+        }
+        if (!document.querySelector('input[name="shipping"]:checked')) {
+            showError("❌ Please select a shipping method!");
+            return;
+        }
+        
+
+        // Collect selected products
         productCards.forEach(card => {
             const checkbox = card.querySelector('input[type="checkbox"]');
             const quantityInput = card.querySelector('input[type="number"]');
@@ -110,12 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
-
-        if (!customerName || !phoneNumber || !address || selectedProducts.length === 0) {
-            errorMessage.textContent = 'Please fill out all required fields';
-            errorModal.show();
-            return;
-        }
 
         // Generate order number
         const orderNumber = Math.floor(Math.random() * 1000000);
@@ -136,3 +163,32 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'order-confirmation.html';
     });
 });
+
+
+
+// Function to increment quantity
+function incrementQuantity(button) {
+    const input = button.parentElement.querySelector('input[type="number"]');
+    input.value = parseInt(input.value) + 1;
+    input.dispatchEvent(new Event('input')); // Trigger the input event to update the order summary
+}
+
+// Function to decrement quantity
+function decrementQuantity(button) {
+    const input = button.parentElement.querySelector('input[type="number"]');
+    if (input.value > 1) {
+        input.value = parseInt(input.value) - 1;
+        input.dispatchEvent(new Event('input')); // Trigger the input event to update the order summary
+    }
+}
+
+// Optional: Add event listeners using IDs
+document.getElementById('incrementButton').addEventListener('click', function() {
+    incrementQuantity(this);
+});
+
+document.getElementById('decrementButton').addEventListener('click', function() {
+    decrementQuantity(this);
+});
+
+

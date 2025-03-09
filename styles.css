@@ -167,38 +167,7 @@ h3, h5 {
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0lax{text-align:left;vertical-align:top}
 
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    justify-content: center;
-    align-items: center;
-}
 
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.close:hover {
-    color: red;
-}
 
 
 
@@ -325,4 +294,46 @@ body {
     .product-description {
         font-size: 1em;
     }
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside the popup */
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px; /* Fixed width for the popup */
+    position: relative; /* For positioning the close button */
+}
+
+.close {
+    position: absolute; /* Position the close button */
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.close:hover {
+    color: #ff0000; /* Red color on hover */
+}
+.contact-section{
+padding-top: 5rem;
+}
+.footer {
+    padding: 5rem 0;
+}
+.contact-section .social {
+    margin-top: 5rem;
 }
