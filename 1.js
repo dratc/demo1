@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded");
+
     const productCards = document.querySelectorAll('.product-card');
     const orderSummaryBody = document.getElementById('orderSummaryBody');
     const subtotalElement = document.getElementById('subtotal');
@@ -12,9 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let subtotal = 0;
     let shippingCost = 0;
     let totalPrice = 0;
-
-    // Popup functionality
- 
 
     // Auto-check the first product by default
     const firstProductCheckbox = document.querySelector('.product-card input[type="checkbox"]');
@@ -48,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update order summary
     function updateOrderSummary() {
+        console.log("Updating order summary");
         subtotal = 0;
         orderSummaryBody.innerHTML = '';
 
@@ -83,12 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to show error messages
     function showError(message) {
+        console.error("Error:", message);
         errorMessage.textContent = message;
         errorModal.show();
     }
 
     // Place order button functionality
     placeOrderButton.addEventListener('click', () => {
+        console.log("Place order button clicked");
         const customerName = document.getElementById('customerName').value.trim();
         const phoneNumber = document.getElementById('phoneNumber').value.trim();
         const address = document.getElementById('address').value.trim();
@@ -125,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
             showError("❌ Please select a shipping method!");
             return;
         }
-        
 
         // Collect selected products
         productCards.forEach(card => {
@@ -164,31 +165,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
 // Function to increment quantity
 function incrementQuantity(button) {
+    console.log("Increment button clicked");
     const input = button.parentElement.querySelector('input[type="number"]');
     input.value = parseInt(input.value) + 1;
-    input.dispatchEvent(new Event('input')); // Trigger the input event to update the order summary
+    input.dispatchEvent(new Event('input'));
 }
 
 // Function to decrement quantity
 function decrementQuantity(button) {
+    console.log("Decrement button clicked");
     const input = button.parentElement.querySelector('input[type="number"]');
     if (input.value > 1) {
         input.value = parseInt(input.value) - 1;
-        input.dispatchEvent(new Event('input')); // Trigger the input event to update the order summary
+        input.dispatchEvent(new Event('input'));
     }
 }
-
-// Optional: Add event listeners using IDs
-document.getElementById('incrementButton').addEventListener('click', function() {
-    incrementQuantity(this);
-});
-
-document.getElementById('decrementButton').addEventListener('click', function() {
-    decrementQuantity(this);
-});
-
-
